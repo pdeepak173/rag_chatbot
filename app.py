@@ -120,7 +120,7 @@ with st.sidebar:
                 "file": (uploaded_file.name, uploaded_file.getvalue())
             }
 
-            response = requests.post("http://127.0.0.1:8000/upload", files=files)
+            response = requests.post("http://backend:8000/upload", files=files)
 
             if response.status_code == 200:
                 data = response.json()
@@ -241,7 +241,7 @@ if query:
 
     # CALLING BACKEND PROGRAM
     response = requests.post(
-        "http://127.0.0.1:8000/chat",
+        "http://backend:8000/chat",
         json = {'query': query, 'vector_id': st.session_state.vector_id}
         )
 
